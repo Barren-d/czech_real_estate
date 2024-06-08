@@ -2,13 +2,13 @@
 
 Extracts out Czech real estate data from html content
 
-[main.py](./czech_real_estate/main.py) - performs etl of source data. Source data can be list of urls or directory in dbfs file path. The script iterates over the path and first writes the raw content to sql table, then extracts out the parameters defined in asessment
+[main.py](main.py) - performs etl of source data. Source data can be list of urls or directory in dbfs file path. The script iterates over the path and first writes the raw content to sql table, then extracts out the parameters defined in asessment
 
 --------------------
 #### Workflow
 
 
-![workflow diagram](./czech_real_estate/img/cz_workflow_diagram.png)
+![workflow diagram](/img/cz_workflow_diagram.drawio.png)
 
 main.py was designed to run on a databricks workflow, due to limitations of the community edition we are unable to design workflows and job, however main.py was designed to process once per day, in this case you can easily change dataframe write parameters from overwrite to append for daily scheduling.
 

@@ -1,4 +1,3 @@
-# Databricks notebook source
 # source data location
 source = 'dbfs:/FileStore/NN/data'
 

@@ -16,12 +16,17 @@ main.py was designed to run on a databricks workflow, due to limitations of the 
 #### Content
 
 writes the following content
+
+![default.prod_cz_re_raw](/img/default_prod_cz_re_raw.png)
+
 * default.prod_cz_re_raw: holds the raw html content in case further extraction is required as well as ingestion metadata
   - html_content (string): html content stored as text
   - filetimestamp (date): ingestion date
   - source_id (string): identifier extracted from url
   - source_path (string): url or path of the data source  
   - source_rundate (timestamp): run timestamp
+
+![default.prod_cz_re_raw](/img/default_prod_cz_re_trusted.png)
 
 * default.prod_cz_re_trusted: holds the extracted html content from czech real estate websites. Czech characters are normalised to mapping fiel contained in utils.constants. If a new parameters appears the new schema merges with the existing one.
   - energetitska_narochnost_budovi (string): 
@@ -65,6 +70,8 @@ writes the following content
   - dutum_nustyehovanee (string): 
   - rok_rekonstruktse (string): 
   - nakludi_nu_bidlenee (string):
+
+![default.prod_cz_re_raw](/img/default_vw_cz_re_consumption.png)
 
 * default.vw_cz_re_consumption: a view of the trusted layer with a ranked column hierarchy
 

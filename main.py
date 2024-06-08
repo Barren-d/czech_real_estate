@@ -8,21 +8,8 @@ from pyspark.sql.types import Row, _parse_datatype_string
 import requests
 import time
 
-# libraries commented out due to community edition limitations,
-# from utils.constants import *
-# from utils.utils import *
-
-# COMMAND ----------
-
-# import libraries via magic command due to commutiy edition limitations
-
-# COMMAND ----------
-
-# MAGIC %run ./utils/constants.py
-
-# COMMAND ----------
-
-# MAGIC %run ./utils/utils.py
+from utils.constants import *
+from utils.utils import *
 
 # COMMAND ----------
 
@@ -30,14 +17,6 @@ import time
 logging.basicConfig(level=logging.INFO,
                     format = '%(asctime)s [%(levelname)-8s] [%(name)s:%(lineno)s]: %(message)s')
 log = logging.getLogger(__name__)
-
-# COMMAND ----------
-
-while True:
-    current_time = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
-    print(f"Current time: {current_time}")
-    time.sleep(15)  # Sleep for 15 seconds
-
 
 # COMMAND ----------
 
@@ -220,35 +199,4 @@ def create_consumption_view(sourcetable, targettable, sourceschema = 'default', 
 
 if __name__ == '__main__':
     main(source)
-
-# COMMAND ----------
-
-# MAGIC %sql
-# MAGIC select * from default.prod_cz_re_raw limit 3
-
-# COMMAND ----------
-
-# MAGIC %sql
-# MAGIC select * from default.prod_cz_re_trusted limit 3
-
-# COMMAND ----------
-
-# MAGIC %sql
-# MAGIC select * from default.vw_cz_re_consumption limit 3
-
-# COMMAND ----------
-
-columns = spark.sql("select * from prod_cz_re_trusted limit 1").schema.names
-# sort the columns by hierarchy and then alphabetically
-columns = sort_by_hierarchy_first(columns, colhierarchy)
-
-# COMMAND ----------
-
-query = spark.sql("select * from prod_cz_re_trusted limit 1").schema
-
-# COMMAND ----------
-
-[que for que in query]
-
-# COMMAND ----------
 

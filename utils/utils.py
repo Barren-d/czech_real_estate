@@ -1,4 +1,3 @@
-# Databricks notebook source
 import datetime
 import os
 
@@ -10,8 +9,6 @@ class content:
         self.path = path
         self.raw = raw
         self.trusted = trusted
-
-
 
 def add_metadata_to_dict(data, path):
     """
